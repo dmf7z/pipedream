@@ -1,0 +1,11 @@
+{
+    "basepath": ["libs/"],
+    "shim": {
+        "pipedream": ["jquery"],
+        "underscore": "_",
+        "jquery": "jQuery"
+    },
+    "aliases": {
+        "underscore": "lodash"
+    }
+}

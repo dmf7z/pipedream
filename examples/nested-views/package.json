@@ -1,0 +1,19 @@
+{
+  "name": "pipedream-nested-view-example",
+  "description": "Example of nested ",
+  "version": "0.0.1",
+  "author": "Daniel Fernandez (http://danielf.com.ar) & Denis Bardadym (https://github.com/btd)",
+  "engines": {
+    "node": ">=0.6.18",
+    "npm": ">=1.1.9"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+    "express": "3.0.1",
+    "lodash": "~1.0.0-rc.3",
+    "handlebars": "latest",
+    "q": "latest",
+    "pipedream": "latest"
+  }
+}

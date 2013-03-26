@@ -1,7 +1,7 @@
 {
   "name": "pipedream",
   "description": "Framework for reusing backbone code on the client and server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Daniel Fernandez (http://danielf.com.ar) & Denis Bardadym (https://github.com/btd)",
   "engines": {
     "node": ">=0.6.18",

@@ -1,3 +1,5 @@
 .monitor
 .DS_Store
 npm-debug.log
+examples/nested-views/node_modules
+examples/nested-views/npm-debug.log

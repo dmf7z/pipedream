@@ -27,7 +27,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 Handlebars.partials = Handlebars.templates;
 
 //This gives flexibility to override ServerRouter or Router
-var Pipedream = require(__dirname + '/../../../pipedream/pipedream.server')
+var Pipedream = require('pipedream')
 var Router = require(__dirname + '/../controllers/router')(Pipedream)
 
 var router = new Router();

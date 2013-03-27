@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-var PipeDream = require('../../pipedream/pipedream.client');
+var PipeDream = require('node_modules/pipedream/pipedream.client');
 var Router = require('../controllers/router')(PipeDream);
 var router = new Router();
 

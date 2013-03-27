@@ -1,20 +1,21 @@
 {
   "name": "pipedream",
   "description": "Framework for reusing backbone code on the client and server",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "author": "Daniel Fernandez (http://danielf.com.ar) & Denis Bardadym (https://github.com/btd)",
   "engines": {
     "node": ">=0.6.18",
     "npm": ">=1.1.9"
   },
   "devDependencies": {
-    "browserbuild": "~0.6.0"
   },
   "dependencies": {
+    "commander": "0.5.x",
+    "debug": "0.6.0",
     "express": "3.0.1",
     "lodash": "~1.0.0-rc.3",
-    "handlebars": "latest",
-    "q": "latest"
+    "handlebars": "1.0.10",
+    "q": "0.9.2"
   },
   "keywords": [    
     "pipedream",
@@ -28,6 +29,10 @@
     "client", 
     "browser"
   ],
+  "main": "pipedream.server",
+  "bin": {
+    "buildclient": "./bin/buildclient"
+  },
   "engines": {
     "node": "*"
   }

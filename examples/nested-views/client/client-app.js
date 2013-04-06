@@ -19,8 +19,7 @@ require("../templates/compiled/section-buttons");
 //Set all templates also as partials
 Handlebars.partials = Handlebars.templates;
 
-
-var Router = require('../controllers/router')(Pipedream);
+var Router = require('../controllers/router');
 var router = new Router();
 
 router.start();

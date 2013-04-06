@@ -37,6 +37,4 @@ var Router =  Pipedream.Router.extend({
   }
 });  
 
-Router.extend = Pipedream.Router.extend
-
 module.exports = Router

@@ -1,25 +1,16 @@
 var express = require('express')
 var _ = require('lodash')
 var fs = require('fs')
-var Pipedream = require('pipedream')
+require('pipedream')
 //TODO: This should not be global
 Handlebars = require('handlebars')
 
 //Override compileTemplates to use HandleBars
 Pipedream.View.prototype.compileTemplate = function(template, variables){
   try {
-    //Loads template
-    var template = Handlebars.templates[template + '.hbs']; 
-    var res = template(variables);
-    if(variables.layout){
-      //Loads layout
-      var layoutTemplate = Handlebars.templates[variables.layout + '.hbs']; 
-      var finalRes = layoutTemplate({title: 'Pipedream', container: res});    
-    }
-    else
-      finalRes = res;
-    return finalRes;
-    
+      //Loads template
+      var template = Handlebars.templates[template + '.hbs']; 
+      return template(variables);
     } 
     catch (err) {
       return '<hr>Error: ' + err.message + '</hr>';
@@ -48,10 +39,13 @@ fs.readdirSync(models_path).forEach(function (file) {
 Handlebars.partials = Handlebars.templates;
 
 //Init Router
-var Router = require(__dirname + '/../controllers/router')(Pipedream)
+var Router = require('../controllers/router')
 var router = new Router({app: app});
 
+//Use pipedream router as middleware
+app.use(router)
+
 // Launch server
-router.listen(4243);
+app.listen(4243);
 
 console.log("Listening on port 4243")

@@ -59,8 +59,6 @@ var AppView = Pipedream.View.extend({
   // Re-rendering the App just means refreshing the statistics -- the rest
   // of the app doesn't change.
   render: function () {
-
-    console.log("rendering")
     
     if(!this.isClient)
       this.appendInitialData();

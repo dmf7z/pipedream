@@ -16987,14 +16987,9 @@ var ClientRouter = Backbone.Router.extend({
     options || (options = {});
     if (options.app) this.app = options.app;
     Backbone.Router.prototype.constructor.call(this, options);
-    this._globals = this.createGlobals(); 
   },
 
-  //Override to add globals
-  createGlobals: function(){
-    return {};
-  },
-
+  //TODO: is this equal to the backbone route method???
   //We add router global variables
   route: function(route, name, callback) {
     if (!_.isRegExp(route)) route = this._routeToRegExp(route);
@@ -17007,8 +17002,6 @@ var ClientRouter = Backbone.Router.extend({
     Backbone.history.route(route, function(fragment) {
       var args = router._extractParameters(route, fragment);
       if(callback){
-        if(router._globals)
-          args.push(router._globals);
         callback.apply(router, args);
       }
       router.trigger.apply(router, ['route:' + name].concat(args));
@@ -17218,8 +17211,6 @@ var AppView = Pipedream.View.extend({
   // Re-rendering the App just means refreshing the statistics -- the rest
   // of the app doesn't change.
   render: function () {
-
-    console.log("rendering")
     
     if(!this.isClient)
       this.appendInitialData();

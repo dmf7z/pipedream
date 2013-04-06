@@ -1,16 +1,16 @@
-var PipedreamClient = require('./lib/pipedream.base')
+Backbone = require('backbone');
 
-PipedreamClient.Router = require('./lib/router/client/router')
-PipedreamClient.View = require('./lib/view/client/view')
-PipedreamClient.Model = require('./lib/model/client/model')
-PipedreamClient.Collection = require('./lib/collection/client/collection')
-PipedreamClient.Sync = require('./lib/sync/client/sync')
-
-// Set the default implementation of `PipedreamClient.ajax` to proxy through to `$`.
-// Override this if you'd like to use a different library.
-PipedreamClient.ajax = function() {
-  return PipedreamClient.$.ajax.apply(PipedreamClient.$, arguments);
+Pipedream = {
+	_initialLoad: true
 };
 
-module.exports = PipedreamClient;
+//Pipedream.History = require('./lib/history/client/history')
+//Pipedream.Events = require('./lib/event/client/event')
+//Pipedream.sync = require('./lib/sync/client/sync')
+Pipedream.Router = require('./lib/router/client/router')
+Pipedream.View = require('./lib/view/client/view')
+Pipedream.Model = require('./lib/model/client/model')
+Pipedream.Collection = require('./lib/collection/client/collection')
+
+module.exports = Pipedream;
 

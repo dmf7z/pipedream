@@ -1,6 +1,8 @@
 .monitor
 .DS_Store
+node_modules/
 npm-debug.log
 examples/nested-views/node_modules
 examples/nested-views/npm-debug.log
-node_modules/
+examples/todomvc/node_modules
+examples/todomvc/npm-debug.log

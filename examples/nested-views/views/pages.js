@@ -1,9 +1,9 @@
 var _ = require('lodash')
 
 
-module.exports = function(PipeDream){
-  var PageView = require('./page')(PipeDream);
-  var PagesView = PipeDream.View.extend({
+module.exports = function(Pipedream){
+  var PageView = require('./page')(Pipedream);
+  var PagesView = Pipedream.View.extend({
     el: "#container",
     template: "pages",
     events: {

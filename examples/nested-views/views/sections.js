@@ -1,8 +1,8 @@
 var _ = require('lodash')
 
-module.exports = function(PipeDream){
-  var SectionView = require('./section')(PipeDream);
-  var SectionsView = PipeDream.View.extend({
+module.exports = function(Pipedream){
+  var SectionView = require('./section')(Pipedream);
+  var SectionsView = Pipedream.View.extend({
     template: "sections",
     events: {
       "click .btn_section" : "navigateTo"

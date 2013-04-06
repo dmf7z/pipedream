@@ -1,7 +1,7 @@
 var _ = require('lodash')
 
-module.exports = function(PipeDream){
-  var SectionView = PipeDream.View.extend({
+module.exports = function(Pipedream){
+  var SectionView = Pipedream.View.extend({
     template: "section",
     initialize: function(options){  
       this.section = options.section;

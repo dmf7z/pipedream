@@ -1,1 +1,0 @@
-//Put here routes for server that you do not want to expose in client

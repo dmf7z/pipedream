@@ -1,7 +1,7 @@
 var express = require('express')
 var _ = require('lodash')
 var fs = require('fs')
-var Pipedream = require('pipedream')
+require('pipedream')
 //TODO: This should not be global
 Handlebars = require('handlebars')
 
@@ -37,6 +37,8 @@ app.configure(function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+//Configure database
+var db = require('./db/db');
 
 // Bootstrap templates
 var models_path = __dirname + '/../templates/compiled'
@@ -47,11 +49,38 @@ fs.readdirSync(models_path).forEach(function (file) {
 //Set all templates also as partials
 Handlebars.partials = Handlebars.templates;
 
-//Init Router
-var Router = require(__dirname + '/../controllers/router')(Pipedream)
+//Load some demo data to the db
+db.add({
+  "title": "do the laundry",
+  "order": 1,
+  "completed": false
+}, 1);
+db.add({
+  "title": "mine some litecoins",
+  "order": 2,
+  "completed": false
+}, 2);
+db.add({
+  "title": "have a beer",
+  "order": 3,
+  "completed": true
+}, 3);
+
+//Initialize todos
+var TodoList = require('./../collections/todos')
+app.Todos = new TodoList();
+
+//Bootstrap internal routes first
+require('./config/routes')(app)
+app.use(app.router)
+
+//Init Pipedream Router
+var Router = require(__dirname + './../controllers/router')
 var router = new Router({app: app});
 
-// Launch server
-router.listen(4243);
+//Use pipedream router as middleware
+app.use(router)
+
+app.listen(4243);
 
 console.log("Listening on port 4243")

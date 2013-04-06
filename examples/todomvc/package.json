@@ -1,6 +1,6 @@
 {
-  "name": "pipedream-nested-view-example",
-  "description": "Example of nested views with pipedream",
+  "name": "todomvc-view-example",
+  "description": "Example of todomvc with pipedream",
   "version": "0.0.1",
   "author": "Daniel Fernandez (http://danielf.com.ar) & Denis Bardadym (https://github.com/btd)",
   "engines": {
@@ -14,6 +14,7 @@
     "lodash": "~1.0.0-rc.3",
     "handlebars": "latest",
     "q": "latest",
-    "pipedream": "latest"
+    "pipedream": "latest",
+    "nodejs-microdb" : "0.0.2"
   }
 }

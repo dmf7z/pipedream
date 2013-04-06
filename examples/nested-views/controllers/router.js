@@ -6,6 +6,7 @@ module.exports = function(Pipedream){
   var Router =  Pipedream.Router.extend({    
     routes: {
       'pa' : 'funtionA',
+      'pa/:test/:caca' : 'funtionAX',
       'pb' : 'funtionB',
       'pc' : 'funtionC',
       'pd' : 'funtionD',
@@ -25,7 +26,7 @@ module.exports = function(Pipedream){
       'pd/sd2' : 'funtionD2',
       'pd/sd3' : 'funtionD3',
       'pd/sd4' : 'funtionD4',
-      '*actions' : 'functionA'
+      '*actions' : 'functionDefault'
     },
     renderPagesView: function(selectedPageId, selectedSectionId){
       var PagesView = require('../views/pages')(Pipedream);
@@ -33,67 +34,70 @@ module.exports = function(Pipedream){
       this.pagesView.on('navigateTo', function(path){
         this.navigate(path, { trigger: false });
       }, this);   
-      this.render(this.pagesView);
+      return this.pagesView;
     },
-    funtionA: function() {    
-      this.renderPagesView('pa');
+    functionDefault: function() {   
+      return this.renderPagesView('pa');
     },
-    funtionB: function() {      
-      this.renderPagesView('pb');          
+    funtionA: function() {   
+      return this.renderPagesView('pa');
+    },
+    funtionB: function() {   
+      return this.renderPagesView('pb');          
     },
     funtionC: function() {   
-      this.renderPagesView('pc');          
+      return this.renderPagesView('pc');          
     },
     funtionD: function() {
-      this.renderPagesView('pd');         
+      return this.renderPagesView('pd');         
     },
     funtionA1: function() {    
-      this.renderPagesView('pa', 'sa1');             
+      return this.renderPagesView('pa', 'sa1');             
     },
     funtionA2: function() {    
-      this.renderPagesView('pa', 'sa2');             
+      return this.renderPagesView('pa', 'sa2');             
     },
     funtionA3: function() {    
-      this.renderPagesView('pa', 'sa3');             
+      return this.renderPagesView('pa', 'sa3');             
     },
     funtionA4: function() {    
-      this.renderPagesView('pa', 'sa4');             
+      return this.renderPagesView('pa', 'sa4');             
     },
     funtionB1: function() {    
-      this.renderPagesView('pb', 'sb1');             
+      return this.renderPagesView('pb', 'sb1');             
     },
     funtionB2: function() {    
-      this.renderPagesView('pb', 'sb2');            
+      return this.renderPagesView('pb', 'sb2');            
     },
     funtionB3: function() {    
-      this.renderPagesView('pb', 'sb3');            
+      return this.renderPagesView('pb', 'sb3');            
     },
     funtionB4: function() {    
-      this.renderPagesView('pb', 'sb4');             
+      return this.renderPagesView('pb', 'sb4');             
     },
     funtionC1: function() {    
-      this.renderPagesView('pc', 'sc1');             
+      return this.renderPagesView('pc', 'sc1');             
     },
     funtionC2: function() {    
-      this.renderPagesView('pc', 'sc2');             
+      return this.renderPagesView('pc', 'sc2');             
     },
     funtionC3: function() {    
-      this.renderPagesView('pc', 'sc3');             
+      return this.renderPagesView('pc', 'sc3');             
     },
     funtionC4: function() {    
-      this.renderPagesView('pc', 'sc4');             
+      return this.renderPagesView('pc', 'sc4');             
     },
     funtionD1: function() {    
-      this.renderPagesView('pd', 'sd1');             
+      return this.renderPagesView('pd', 'sd1');             
     },
     funtionD2: function() {    
-      this.renderPagesView('pd', 'sd2');             
+      return this.renderPagesView('pd', 'sd2');             
     },
     funtionD3: function() {    
-      this.renderPagesView('pd', 'sd3');             
+      return this.renderPagesView('pd', 'sd3');             
     },
     funtionD4: function() {    
-      this.renderPagesView('pd', 'sd4');             
+      return this.renderPagesView('pd', 'sd4');             
     }
   });  
 

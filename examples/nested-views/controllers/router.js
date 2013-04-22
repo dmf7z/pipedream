@@ -29,7 +29,7 @@ var Router =  Pipedream.Router.extend({
   renderPagesView: function(selectedPageId, selectedSectionId){
     var PagesView = require('../views/pages');
     this.pagesView =  new PagesView({pages: pages, selectedPageId: selectedPageId, selectedSectionId: selectedSectionId});      
-    if(this.isClient)
+    if(Pipedream.isClient)
       this.pagesView.on('navigateTo', function(path){
         this.navigate(path, { trigger: false });
       }, this);  

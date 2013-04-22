@@ -1,6 +1,11 @@
 global.Backbone = require('backbone');
 
 global.Pipedream = {
+	  isClient: false,
+	  api: {
+	  	host: 'localhost',
+  		port: 8080
+	  }
 };
 
 Backbone.sync = require('./lib/sync/server/sync')

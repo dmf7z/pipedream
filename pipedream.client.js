@@ -1,6 +1,7 @@
 Backbone = require('backbone');
 
 Pipedream = {
+	isClient: true,
 	_initialLoad: true
 };
 

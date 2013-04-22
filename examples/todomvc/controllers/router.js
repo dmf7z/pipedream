@@ -6,14 +6,17 @@ var Router =  Pipedream.Router.extend({
   routes: { 
     '*filter': 'setFilter',
   },    
-  jqueryPath : "./libs/jquery.js",
   setFilter: function (param) { 
 
     // Set the current filter to be used
     var filter = param || '';
-    if(!this.isClient){
+    if(!Pipedream.isClient){
       var Todos = new TodoList();     
       var appView = new AppView({Todos: Todos, TodoFilter: filter});       
+      appView.listenTo(Todos, 'sync', function(){
+        appView.appendInitialData();
+        appView.render();
+      });
       Todos.fetch();  
       return appView;
     }

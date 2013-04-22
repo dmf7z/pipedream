@@ -5,6 +5,12 @@ require('pipedream')
 //TODO: This should not be global
 Handlebars = require('handlebars')
 
+var port = 4243;
+
+//Sets the server api host and post to be used by backbone sync 
+Pipedream.api.host = 'localhost';
+Pipedream.api.port = port;
+
 //Override compileTemplates to use HandleBars
 Pipedream.View.prototype.compileTemplate = function(template, variables){
   try {
@@ -73,6 +79,6 @@ var router = new Router({app: app});
 app.use(router)
 
 // Launch server
-app.listen(4243);
+app.listen(port);
 
 console.log("Listening on port 4243")

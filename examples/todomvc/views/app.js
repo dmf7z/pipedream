@@ -42,7 +42,6 @@ var AppView = Pipedream.View.extend({
     this.listenTo(this.Todos, 'reset', this.addAll);
     this.listenTo(this.Todos, 'change:completed', this.filterOne);
     this.listenTo(this.Todos, 'filter', this.filterAll);
-    this.listenTo(this.Todos, 'sync', this.render);
 
   },  
 
@@ -60,9 +59,6 @@ var AppView = Pipedream.View.extend({
   // of the app doesn't change.
   render: function () {
     
-    if(!this.isClient)
-      this.appendInitialData();
-
     var completed = this.Todos.completed().length;
     var remaining = this.Todos.remaining().length;
         
